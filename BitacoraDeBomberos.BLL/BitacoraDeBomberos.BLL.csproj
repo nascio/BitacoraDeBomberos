@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB408689-A58F-4E9F-B3D4-CEC22FAF9C9C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BitacoraDeBomberos.BLL</RootNamespace>
+    <AssemblyName>BitacoraDeBomberos.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bases\Ayuda.cs" />
+    <Compile Include="Bases\Comando.cs" />
+    <Compile Include="Bases\CreacionTuples.cs" />
+    <Compile Include="Bases\DatosBase.cs" />
+    <Compile Include="Bases\Mensaje.cs" />
+    <Compile Include="Bases\MensajeAdvertencia.cs" />
+    <Compile Include="Bases\ModeloBaseT.cs" />
+    <Compile Include="Bases\ModelosBase.cs" />
+    <Compile Include="Bases\Notificador.cs" />
+    <Compile Include="Bases\TextoEnum.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Datos\Accesos\%40Acceso.cs" />
+    <Compile Include="Datos\Accesos\%40Control.cs" />
+    <Compile Include="Datos\Accesos\RolAcceso.cs" />
+    <Compile Include="Datos\Accesos\Usuario.UsuarioEstado.cs" />
+    <Compile Include="Datos\Ingresos\EstadoResolucion.cs" />
+    <Compile Include="Datos\Ingresos\IResolucion.cs" />
+    <Compile Include="Datos\Ingresos\Opcion.cs" />
+    <Compile Include="Datos\Ingresos\REM.cs" />
+    <Compile Include="Datos\Ingresos\REM.Ingresos.cs" />
+    <Compile Include="Datos\Personas\Bombero.cs" />
+    <Compile Include="Datos\Personas\Bombero.Estado.cs" />
+    <Compile Include="Datos\Personas\Bombero.Rol.cs" />
+    <Compile Include="Datos\Accesos\Usuario.cs" />
+    <Compile Include="Exepciones\BitacoraBomberosException.cs" />
+    <Compile Include="Exepciones\SinConexionException.cs" />
+    <Compile Include="Modelos\IBasicValidation.cs" />
+    <Compile Include="Modelos\MVBombero.cs" />
+    <Compile Include="Modelos\MVBombero.Ingresos.cs" />
+    <Compile Include="Modelos\MVMensaje.cs" />
+    <Compile Include="Modelos\MVRolAcceso.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BitacoraDeBomberos.DAL\BitacoraDeBomberos.DAL.csproj">
+      <Project>{9f327668-fd0d-44dd-9a19-4ef220aeb209}</Project>
+      <Name>BitacoraDeBomberos.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,23 @@
+﻿<Application x:Class="BitacoraDeBomberos.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:BitacoraDeBomberos"
+             StartupUri="Window1.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="res/Recursos1.xaml" />
+                <ResourceDictionary Source="res/MensajesFunc.xaml" />
+                <ResourceDictionary Source="res/PlantillasDatos.xaml" />
+                <ResourceDictionary Source="res/OtrasPlantillasEstilos.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <Style TargetType="Button">
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="Margin" Value="0,0,0,5" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

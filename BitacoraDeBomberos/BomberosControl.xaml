@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="BitacoraDeBomberos.BomberosControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Modelos="clr-namespace:BitacoraDeBomberos.BLL.Modelos;assembly=BitacoraDeBomberos.BLL"
+             xmlns:bb="http://equipo.desarrollo.com/2018/ccc"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:l_ctrls="clr-namespace:BitacoraDeBomberos.Controles"
+             xmlns:local="clr-namespace:BitacoraDeBomberos"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             d:DesignHeight="384"
+             d:DesignWidth="676"
+             TextBlock.FontSize="15"
+             TextBlock.Foreground="Black"
+             TextElement.FontSize="15"
+             TextElement.Foreground="Black"
+             mc:Ignorable="d">
+    <UserControl.Resources />
+
+    <UserControl.DataContext>
+        <Modelos:MVBombero AccionesUI="MVBombero_AccionesUI" />
+    </UserControl.DataContext>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <l_ctrls:EncabezadoControl SubTitulo="Informacion personal de los bomberos" />
+
+        <Grid Grid.Row="1" Background="White">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition Width="20" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <ListBox HorizontalContentAlignment="Center"
+                     BorderThickness="0"
+                     Focusable="False"
+                     IsTabStop="False"
+                     ItemContainerStyle="{DynamicResource ListBoxVistaSingularEstiloKey}"
+                     ItemTemplate="{DynamicResource PlantillaBomberoKey}"
+                     ItemsPanel="{DynamicResource ListBoxVistaSingularKey}"
+                     ItemsSource="{Binding Coleccion, Mode=OneWay}"
+                     ScrollViewer.CanContentScroll="False"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     SelectedItem="{Binding Seleccion, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Style="{DynamicResource ListBoxSinRegistrosKey}" />
+
+            <StackPanel Grid.Column="2">
+                <Button Command="{Binding CmdActualizarLista}" Content="Actualizar" />
+                <Button Click="kasmdkasmdkasmdakm"
+                        Command="{Binding CmdNuevo}"
+                        Content="Nuevo" />
+                <Button Content="Editar" />
+                <Button Command="{Binding CmdDesactivar}" Content="Desactivar" />
+                <Button Command="{Binding CmdActivar}" Content="Activar" />
+            </StackPanel>
+        </Grid>
+
+
+        <Grid x:Name="kw"
+              Grid.Row="1"
+              Background="#AA000000"
+              Visibility="Visible" />
+
+        <ContentControl Grid.RowSpan="2"
+                        VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        Content="{DynamicResource ItemMensajesControlKey}" />
+        <Button Width="110"
+                Height="32"
+                Margin="503,10,0,0"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Click="Button_Click_1"
+                Content="Button" />
+    </Grid>
+</UserControl>

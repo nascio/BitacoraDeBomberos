@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="BitacoraDeBomberos.Controles.TituloComboBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:l_ctrls="clr-namespace:BitacoraDeBomberos.Controles"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Padding="2,5"
+             d:DesignHeight="300"
+             d:DesignWidth="1100"
+             mc:Ignorable="d">
+    <UserControl.Template>
+        <ControlTemplate TargetType="l_ctrls:TituloComboBox">
+            <StackPanel Margin="{TemplateBinding Padding}" Orientation="Vertical">
+
+                <TextBlock FontSize="10"
+                           FontWeight="Bold"
+                           Foreground="Black"
+                           Text="{TemplateBinding Titulo}" />
+
+                <ComboBox Margin="20,5,0,0"
+                          FontWeight="{TemplateBinding FontWeight}"
+                          Foreground="{TemplateBinding Foreground}"
+                          ItemContainerStyle="{TemplateBinding ItemContainerStyle}"
+                          ItemTemplate="{TemplateBinding ItemTemplate}"
+                          ItemsPanel="{TemplateBinding ItemsPanel}"
+                          ItemsSource="{TemplateBinding ItemsSource}"
+                          SelectedItem="{TemplateBinding SelectedItem}"
+                          SelectedValue="{TemplateBinding SelectedValue}"
+                          SelectedValuePath="{TemplateBinding SelectedValuePath}" />
+
+            </StackPanel>
+        </ControlTemplate>
+    </UserControl.Template>
+</UserControl>

@@ -1,0 +1,83 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:BitacoraDeBomberos.res">
+
+    <ItemsControl x:Key="ItemMensajesControlKey"
+                  x:Shared="False"
+                  Focusable="False"
+                  IsTabStop="False"
+                  ItemsSource="{Binding ColeccionMensajes}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel VerticalAlignment="Bottom" IsItemsHost="True" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Button Command="{Binding CmdCerrar}">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Grid MaxWidth="250"
+                                  Margin="2,1"
+                                  Cursor="Hand">
+                                <Border x:Name="brdFondo"
+                                        Background="#FFC0CB"
+                                        BorderBrush="#FFE57E"
+                                        BorderThickness="5"
+                                        CornerRadius="5"
+                                        Effect="{DynamicResource Difuminado5Key}" />
+                                <Border Margin="4"
+                                        BorderBrush="Black"
+                                        BorderThickness="1"
+                                        CornerRadius="5" />
+
+                                <StackPanel Margin="10,5">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Rectangle x:Name="img"
+                                                   Width="16"
+                                                   Height="16"
+                                                   Margin="0,0,5,0"
+                                                   Fill="{DynamicResource IconErrorKey}" />
+                                        <TextBlock Text="{Binding Mensaje.Advertencia}"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="12"
+                                                   FontWeight="Bold" />
+                                    </StackPanel>
+
+                                    <TextBlock Text="{Binding Mensaje.Contenido}" TextWrapping="Wrap" />
+                                    <TextBlock x:Name="lblTiempo"
+                                               Text="{Binding Segundos}"
+                                               FontSize="10"
+                                               TextWrapping="Wrap" />
+                                </StackPanel>
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+                                <DataTrigger Binding="{Binding Segundos}" Value="{x:Null}">
+                                    <Setter TargetName="lblTiempo" Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+
+                                <DataTrigger Binding="{Binding Mensaje.Advertencia}" Value="Advertencia1">
+                                    <Setter TargetName="brdFondo" Property="Background" Value="#FFE57E" />
+                                    <Setter TargetName="img" Property="Fill" Value="{DynamicResource IconAdvertenciaKey}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Mensaje.Advertencia}" Value="Advertencia2">
+                                    <Setter TargetName="brdFondo" Property="Background" Value="#F2FF7F" />
+                                    <Setter TargetName="img" Property="Fill" Value="{DynamicResource IconAdvertenciaKey}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Mensaje.Advertencia}" Value="Bueno">
+                                    <Setter TargetName="brdFondo" Property="Background" Value="#EBF8A4" />
+                                    <Setter TargetName="img" Property="Fill" Value="{DynamicResource IconExitoKey}" />
+                                </DataTrigger>
+                            </ControlTemplate.Triggers>
+
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+
+    </ItemsControl>
+
+</ResourceDictionary>

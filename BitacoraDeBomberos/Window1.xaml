@@ -1,0 +1,65 @@
+﻿<Window x:Class="BitacoraDeBomberos.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Modelos="clr-namespace:BitacoraDeBomberos.BLL.Modelos;assembly=BitacoraDeBomberos.BLL"
+        xmlns:bb="http://equipo.desarrollo.com/2018/ccc"
+        xmlns:bb_bas="clr-namespace:BitacoraDeBomberos.BLL.Bases;assembly=BitacoraDeBomberos.BLL"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:BitacoraDeBomberos"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="Window1"
+        Width="521"
+        Height="343"
+        mc:Ignorable="d">
+    <Window.DataContext>
+        <Modelos:MVRolAcceso AccionesUI="MVRolAcceso_AccionesUI" />
+    </Window.DataContext>
+    <Grid>
+        <Button Width="96"
+                Height="51"
+                Margin="376,25,0,0"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                Command="{Binding CmdNuevoElemento}"
+                Content="Nuevo Rol" />
+        <Grid Width="332"
+              Height="224"
+              Margin="27,25,0,0"
+              VerticalAlignment="Top"
+              HorizontalAlignment="Left">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="59*" />
+                <RowDefinition Height="78*" />
+                <RowDefinition Height="87*" />
+            </Grid.RowDefinitions>
+            <bb:TituloTextBox Text="{Binding ActualNombre, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                              Grid.Row="1"
+                              Width="227"
+                              Height="58"
+                              Margin="34,10,0,0"
+                              VerticalAlignment="Top"
+                              HorizontalAlignment="Left"
+                              LostKeyboardFocusCommand="{Binding CmdErrores}" />
+            <Button Grid.Row="2"
+                    Width="154"
+                    Height="49"
+                    Margin="156,10,0,0"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Command="{Binding CmdAceptar}"
+                    CommandParameter="{x:Static bb_bas:TipoAccion.Nuevo}"
+                    Content="Guardar" />
+        </Grid>
+
+
+
+
+
+        <ContentControl VerticalAlignment="Bottom"
+                        HorizontalAlignment="Right"
+                        Content="{DynamicResource ItemMensajesControlKey}"
+                        Focusable="False"
+                        IsTabStop="False" />
+
+    </Grid>
+</Window>

@@ -1,0 +1,32 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:BitacoraDeBomberos.res">
+
+    <BlurEffect x:Key="Difuminado5Key" x:Shared="False" />
+    <BlurEffect x:Key="Difuminado4Key"
+                x:Shared="False"
+                Radius="4" />
+
+
+
+    <ImageBrush x:Key="IconErrorKey"
+                ImageSource="http://localhost/phpmyadmin/themes/pmahomme/img/sprites.png"
+                Viewbox="0,2080,16,16"
+                ViewboxUnits="Absolute" />
+
+    <ImageBrush x:Key="IconAdvertenciaKey"
+                ImageSource="http://localhost/phpmyadmin/themes/pmahomme/img/sprites.png"
+                Viewbox="0,2064,16,16"
+                ViewboxUnits="Absolute" />
+
+    <ImageBrush x:Key="IconExitoKey"
+                ImageSource="http://localhost/phpmyadmin/themes/pmahomme/img/sprites.png"
+                Viewbox="0,2448,16,16"
+                ViewboxUnits="Absolute" />
+
+    <ImageBrush x:Key="IconAgregarKey"
+                ImageSource="http://localhost/phpmyadmin/themes/pmahomme/img/sprites.png"
+                Viewbox="0,928,16,16"
+                ViewboxUnits="Absolute" />
+
+</ResourceDictionary>

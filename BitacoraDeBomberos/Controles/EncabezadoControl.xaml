@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="BitacoraDeBomberos.Controles.EncabezadoControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:l_ctrls="clr-namespace:BitacoraDeBomberos.Controles"
+             HorizontalAlignment="Center">
+    <UserControl.Template>
+        <ControlTemplate TargetType="l_ctrls:EncabezadoControl">
+            <StackPanel Margin="0,0,0,5" Orientation="Horizontal">
+                <Image Width="100"
+                       Height="100"
+                       Margin="0,0,5,0"
+                       RenderOptions.BitmapScalingMode="HighQuality"
+                       RenderOptions.CachingHint="Cache"
+                       RenderOptions.ClearTypeHint="Enabled"
+                       RenderOptions.EdgeMode="Aliased"
+                       Source="/BitacoraDeBomberos;component/Resources/logo-completo-png.png" />
+                <StackPanel VerticalAlignment="Center" Orientation="Vertical">
+
+                    <TextBlock Text="Benemerito Cuerpo Voluntario de Bomberos de Guatemala"
+                               FontSize="22"
+                               FontWeight="Bold"
+                               TextAlignment="Center" />
+
+                    <TextBlock Text="19ª. Compañía San Pedro Sacatepequez, S. M."
+                               FontSize="18"
+                               FontWeight="Bold"
+                               TextAlignment="Center" />
+
+                    <Border Height="2"
+                            Margin="5,2,5,-1"
+                            Background="#FFFF3C41"
+                            SnapsToDevicePixels="True" />
+
+                    <TextBlock Text="{TemplateBinding SubTitulo}" TextAlignment="Center" />
+                </StackPanel>
+            </StackPanel>
+        </ControlTemplate>
+    </UserControl.Template>
+</UserControl>

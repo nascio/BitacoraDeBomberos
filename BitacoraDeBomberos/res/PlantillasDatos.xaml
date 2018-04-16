@@ -1,0 +1,60 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:bb="http://equipo.desarrollo.com/2018/ccc"
+                    xmlns:l="clr-namespace:BitacoraDeBomberos.res"
+                    xmlns:l_ctrl="clr-namespace:BitacoraDeBomberos.Controles">
+
+    <DataTemplate x:Key="PlantillaBomberoKey">
+        <Grid Margin="10">
+            <Border Margin="-5"
+                    Background="#FFF5F1F1"
+                    CornerRadius="20" />
+            <StackPanel Orientation="Horizontal">
+
+                <Image Width="100"
+                       Height="100"
+                       Margin="0,0,5,0" />
+
+                <StackPanel>
+                    <bb:TituloLabel Titulo="Nombre:" Contenido="{Binding NombreCompleto}" />
+
+                    <bb:TituloLabel Titulo="DPI:" Contenido="{Binding DPI}" />
+
+                    <bb:TituloLabel Titulo="Fecha de nacimiento:" Contenido="{Binding FechaNacimiento, StringFormat={}dd \'de\' MMMM \'del\' yyyy}" />
+
+                    <bb:TituloLabel Titulo="Carné:" Contenido="{Binding Carne}" />
+
+                    <StackPanel Orientation="Horizontal">
+                        <bb:TituloLabel x:Name="lblEstado"
+                                        Titulo="Estado:"
+                                        Contenido="{Binding Estado}"
+                                        FontWeight="Bold"
+                                        Foreground="#FFBAC5BA" />
+
+                        <bb:TituloLabel x:Name="lblUsuario"
+                                        Titulo="Usuario:"
+                                        Contenido="Establecido"
+                                        Margin="40,0,0,0" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Estado}" Value="Activo">
+                <Setter TargetName="lblEstado" Property="Foreground" Value="Green" />
+            </DataTrigger>
+
+            <DataTrigger Binding="{Binding UsuarioID}" Value="{x:Null}">
+                <Setter TargetName="lblUsuario" Property="Contenido" Value="Sin usuario" />
+                <Setter TargetName="lblUsuario" Property="Foreground" Value="Red" />
+            </DataTrigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+    <DataTemplate x:Key="PlantillaRolesBomberosKey">
+        <TextBlock Text="{Binding Texto}"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center" />
+    </DataTemplate>
+
+</ResourceDictionary>

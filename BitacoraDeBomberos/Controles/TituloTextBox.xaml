@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="BitacoraDeBomberos.Controles.TituloTextBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:l_ctrls="clr-namespace:BitacoraDeBomberos.Controles"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             Padding="2,5"
+             d:DesignHeight="300"
+             d:DesignWidth="1100"
+             mc:Ignorable="d">
+    <UserControl.Template>
+        <ControlTemplate TargetType="l_ctrls:TituloTextBox">
+            <StackPanel Margin="{TemplateBinding Padding}" Orientation="Vertical">
+
+                <TextBlock FontSize="10"
+                           FontWeight="Bold"
+                           Foreground="Black"
+                           Text="{TemplateBinding Titulo}" />
+
+                <TextBox Margin="20,5,0,0"
+                         Padding="5"
+                         FontWeight="{TemplateBinding FontWeight}"
+                         Foreground="{TemplateBinding Foreground}"
+                         Text="{TemplateBinding Contenido}"
+                         TextAlignment="{TemplateBinding TextAlignment}" />
+
+            </StackPanel>
+        </ControlTemplate>
+    </UserControl.Template>
+</UserControl>

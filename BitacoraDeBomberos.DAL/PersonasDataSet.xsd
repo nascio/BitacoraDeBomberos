@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="PersonasDataSet" targetNamespace="http://tempuri.org/PersonasDataSet.xsd" xmlns:mstns="http://tempuri.org/PersonasDataSet.xsd" xmlns="http://tempuri.org/PersonasDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="bitacora_bomberos_19comConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="bitacora_bomberos_19comConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.BitacoraDeBomberos.DAL.Properties.Settings.GlobalReference.Default.bitacora_bomberos_19comConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="bomberoTableAdapter" GeneratorDataComponentClassName="bomberoTableAdapter" Name="bombero" UserDataComponentName="bomberoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="bitacora_bomberos_19comConnectionString (Settings)" DbObjectName="bitacora_bomberos_19com.bombero" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="GetData">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT `id`, `dpi`, `nombre`, `apellido`, `fecha_nacimiento`, `estado`, `rol`, `carne`, `usuario_id` 
+ FROM `bombero`</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="dpi" DataSetColumn="dpi" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="apellido" DataSetColumn="apellido" />
+              <Mapping SourceColumn="fecha_nacimiento" DataSetColumn="fecha_nacimiento" />
+              <Mapping SourceColumn="estado" DataSetColumn="estado" />
+              <Mapping SourceColumn="rol" DataSetColumn="rol" />
+              <Mapping SourceColumn="usuario_id" DataSetColumn="usuario_id" />
+              <Mapping SourceColumn="carne" DataSetColumn="carne" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="bitacora_bomberos_19comConnectionString (Settings)" DbObjectName="bitacora_bomberos_19com.bombero" DbObjectType="Table" GenerateMethods="Get" GenerateShortCommands="true" GeneratorGetMethodName="GetDataActivos" GetMethodModifier="Public" GetMethodName="GetDataActivos" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataActivos" UserSourceName="GetDataActivos">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT `id`, `dpi`, `nombre`, `apellido`, `fecha_nacimiento`, `estado`, `rol`, `carne`, `usuario_id` 
+ FROM `bombero`
+ WHERE (`estado` = 1)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="PersonasDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msdata:EnforceConstraints="False" msprop:EnableTableAdapterManager="False" msprop:Generator_DataSetName="PersonasDataSet" msprop:Generator_UserDSName="PersonasDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="bombero" msprop:Generator_TableClassName="bomberoDataTable" msprop:Generator_TableVarName="tablebombero" msprop:Generator_RowChangedName="bomberoRowChanged" msprop:Generator_TablePropName="bombero" msprop:Generator_RowDeletingName="bomberoRowDeleting" msprop:Generator_RowChangingName="bomberoRowChanging" msprop:Generator_RowEvHandlerName="bomberoRowChangeEventHandler" msprop:Generator_RowDeletedName="bomberoRowDeleted" msprop:Generator_RowClassName="bomberoRow" msprop:Generator_UserTableName="bombero" msprop:Generator_RowEvArgName="bomberoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
+              <xs:element name="dpi" msprop:Generator_ColumnVarNameInTable="columndpi" msprop:Generator_ColumnPropNameInRow="dpi" msprop:Generator_ColumnPropNameInTable="dpiColumn" msprop:Generator_UserColumnName="dpi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_UserColumnName="apellido">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fecha_nacimiento" msprop:Generator_ColumnVarNameInTable="columnfecha_nacimiento" msprop:Generator_ColumnPropNameInRow="fecha_nacimiento" msprop:Generator_ColumnPropNameInTable="fecha_nacimientoColumn" msprop:Generator_UserColumnName="fecha_nacimiento" type="xs:dateTime" />
+              <xs:element name="estado" msprop:Generator_ColumnVarNameInTable="columnestado" msprop:Generator_ColumnPropNameInRow="estado" msprop:Generator_ColumnPropNameInTable="estadoColumn" msprop:Generator_UserColumnName="estado" type="xs:byte" />
+              <xs:element name="rol" msprop:Generator_ColumnVarNameInTable="columnrol" msprop:Generator_ColumnPropNameInRow="rol" msprop:Generator_ColumnPropNameInTable="rolColumn" msprop:Generator_UserColumnName="rol" type="xs:byte" minOccurs="0" />
+              <xs:element name="usuario_id" msprop:Generator_ColumnVarNameInTable="columnusuario_id" msprop:Generator_ColumnPropNameInRow="usuario_id" msprop:Generator_ColumnPropNameInTable="usuario_idColumn" msprop:Generator_UserColumnName="usuario_id" type="xs:int" minOccurs="0" />
+              <xs:element name="carne" msprop:Generator_ColumnVarNameInTable="columncarne" msprop:Generator_ColumnPropNameInRow="carne" msprop:Generator_ColumnPropNameInTable="carneColumn" msprop:Generator_UserColumnName="carne" type="xs:int" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:bombero" />
+      <xs:field xpath="mstns:id" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

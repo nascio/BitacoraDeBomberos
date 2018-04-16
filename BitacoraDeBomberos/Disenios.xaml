@@ -1,0 +1,238 @@
+﻿<Window x:Class="BitacoraDeBomberos.Disenios"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:bb="http://equipo.desarrollo.com/2018/ccc"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:l="clr-namespace:BitacoraDeBomberos"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="Disenios"
+        Width="800"
+        Height="1000"
+        Background="#AA000000"
+        TextBlock.FontSize="15"
+        TextBlock.Foreground="Black"
+        TextElement.FontSize="15"
+        TextElement.Foreground="Black"
+        mc:Ignorable="d">
+
+    <Grid>
+        <bb:Ventana VerticalAlignment="Top" Background="Red">
+            <Grid Width="600"
+                  Margin="0,-0,0,0"
+                  Background="White">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <!--<RowDefinition Height="Auto" />-->
+                    <!--<RowDefinition Height="Auto" />-->
+                    <RowDefinition Height="20" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+
+
+                <TextBlock Text="Registro de un bombero"
+                           FontWeight="Bold"
+                           TextAlignment="Center" />
+
+
+
+                <ScrollViewer>
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+
+                        <Grid Margin="72,0" HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="5" />
+                                <ColumnDefinition Width="auto" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <bb:TituloTextBox Titulo="Nombre:"
+                                              Text="{Binding ActualNombre, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              Width="225"
+                                              LostKeyboardFocusCommand="{Binding CmdErrores}"
+                                              MarcaAguaContent="nombres" />
+
+                            <bb:TituloTextBox Titulo="Apellido:"
+                                              Text="{Binding ActualApellido, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              Grid.Column="2"
+                                              Width="225"
+                                              LostKeyboardFocusCommand="{Binding CmdErrores}"
+                                              MarcaAguaContent="apellidos" />
+
+                            <bb:TituloTextBox Titulo="DPI (CUI):"
+                                              Text="{Binding ActualDPI, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              Grid.Row="1"
+                                              Width="225"
+                                              Formato="0000  00000  0000"
+                                              LostKeyboardFocusCommand="{Binding CmdErrores}"
+                                              MarcaAguaContent="0000  00000  0000"
+                                              TextAlignment="Center" />
+
+
+
+                            <bb:TituloTextBox Titulo="Fecha de nacimiento (dia/mes/año):"
+                                              Text="{Binding ActualFechaNacimiento, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              Grid.Row="1"
+                                              Grid.Column="2"
+                                              Width="225"
+                                              Formato="00 / 00 / 0000"
+                                              LostKeyboardFocusCommand="{Binding CmdErrores}"
+                                              MarcaAguaContent="dd / mm / aaaa"
+                                              TextAlignment="Center" />
+
+                            <bb:TituloTextBox Titulo="No. de carné:   PGP-019-"
+                                              Text="{Binding Path=ActualNoCarne, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                              Grid.Row="2"
+                                              Width="225"
+                                              LostKeyboardFocusCommand="{Binding CmdErrores}"
+                                              MarcaAguaContent="0"
+                                              TextAlignment="Center" />
+
+                            <bb:TituloComboBox Titulo="Rol:"
+                                               Grid.Row="2"
+                                               Grid.Column="2"
+                                               Width="225"
+                                               ItemTemplate="{DynamicResource PlantillaRolesBomberosKey}"
+                                               ItemsSource="{Binding ListaRoles}"
+                                               SelectedValue="{Binding ActualRol}"
+                                               SelectedValuePath="Valor" />
+
+                            <bb:TituloTextBox Titulo="Estado:"
+                                              Grid.Row="3"
+                                              Grid.ColumnSpan="3"
+                                              Width="455"
+                                              MarcaAguaContent="Hola mundo" />
+
+
+                        </Grid>
+
+
+                        <StackPanel Grid.Row="1" Visibility="{Binding ActualHayUsuario, Converter={bb:BooleanToVisibilityConverter Negate=True}}">
+
+
+                            <ToggleButton Margin="0,0,0,10"
+                                          VerticalAlignment="Top"
+                                          HorizontalAlignment="Stretch"
+                                          Content="Crear un usuario"
+                                          FocusVisualStyle="{x:Null}"
+                                          IsChecked="{Binding ActualAgregarUsuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <ToggleButton.Template>
+                                    <ControlTemplate>
+                                        <Border Background="Transparent">
+                                            <StackPanel HorizontalAlignment="Center"
+                                                        Cursor="Hand"
+                                                        Orientation="Horizontal">
+                                                <Rectangle x:Name="img"
+                                                           Width="16"
+                                                           Height="16"
+                                                           Margin="0,0,5,0"
+                                                           Fill="{DynamicResource IconAgregarKey}" />
+                                                <TextBlock x:Name="txt"
+                                                           Text="Crear un usuario"
+                                                           HorizontalAlignment="Center" />
+                                            </StackPanel>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <DataTrigger Binding="{Binding ActualAgregarUsuario}" Value="True">
+                                                <Setter TargetName="img" Property="Fill" Value="{DynamicResource IconErrorKey}" />
+                                                <Setter TargetName="txt" Property="Text" Value="Quitar el usuario." />
+                                            </DataTrigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </ToggleButton.Template>
+
+                            </ToggleButton>
+
+
+                            <Grid Grid.Row="3"
+                                  Margin="72,0"
+                                  HorizontalAlignment="Center"
+                                  Visibility="{Binding ActualAgregarUsuario, Converter={bb:BooleanToVisibilityConverter}}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <bb:TituloTextBox Titulo="Nombre de usuario:"
+                                                  Text="{Binding ActualUsuario, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                  Width="225"
+                                                  LostKeyboardFocusCommand="{Binding CmdErrores}"
+                                                  MarcaAguaContent="ej. jjpanj" />
+                                <bb:TituloTextBox Titulo="Contraseña:"
+                                                  Text="{Binding ActualContrasenia, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                  Grid.Column="2"
+                                                  Width="225"
+                                                  LostKeyboardFocusCommand="{Binding CmdErrores}"
+                                                  MarcaAguaContent="ej.  Pe1i7N@" />
+
+                                <bb:TituloComboBox Titulo="Nivel de acceso"
+                                                   Grid.Row="1"
+                                                   Grid.ColumnSpan="3"
+                                                   Width="225" />
+                            </Grid>
+
+                        </StackPanel>
+
+
+                        <Grid Grid.Row="2"
+                              HorizontalAlignment="Center"
+                              Visibility="{Binding ActualHayUsuario, Converter={bb:BooleanToVisibilityConverter Negate=True}}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="5" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <bb:TituloLabel Titulo="Nombre de usuario"
+                                            Contenido="{Binding ActualUsuario, Mode=OneWay}"
+                                            Width="225" />
+                            <Button Grid.Column="2"
+                                    VerticalAlignment="Center"
+                                    Command="{Binding CmdCargarInfoUsuario}"
+                                    Content="Actualizar" />
+                        </Grid>
+
+                    </Grid>
+                </ScrollViewer>
+
+
+
+                <StackPanel Grid.Row="3"
+                            VerticalAlignment="Bottom"
+                            HorizontalAlignment="Right"
+                            Orientation="Horizontal">
+
+                    <Button Margin="0,0,5,0"
+                            Command="{Binding CmdNuevoAG}"
+                            Content="Agregar" />
+                    <Button Margin="0" Content="Agregar y nuevo" />
+                </StackPanel>
+
+
+
+                <!--<l_ctrls:SubTituloControl />-->
+
+
+            </Grid>
+        </bb:Ventana>
+    </Grid>
+</Window>
