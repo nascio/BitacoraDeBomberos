@@ -40,7 +40,7 @@ namespace BitacoraDeBomberos.BLL.Datos.Accesos {
         #region BD
 
 
-
+        int a;
 
         #endregion
 
